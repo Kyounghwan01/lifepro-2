@@ -80,11 +80,11 @@ body {
     left: 0;
     right: 0;
     margin: 0;
-    padding: 24px 40px 32px;
+    padding: 24px max(24px, env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
     display: flex;
     align-items: center;
     z-index: 100;
-    width: 100%;
+    width: auto;
     height: auto;
     border-radius: 20px 24px 0 0;
     background: #ffffff;
@@ -95,14 +95,15 @@ body {
     content: '';
     position: absolute;
     bottom: 32px;
-    left: 40px;
-    right: 40px;
+    left: max(24px, env(safe-area-inset-left));
+    right: max(24px, env(safe-area-inset-right));
     height: 1px;
     background: #F0F1F2;
 }
 
 .search-input {
     flex: 1;
+    min-width: 0;
     border: none;
     background: none;
     font-size: 18px;
@@ -122,6 +123,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    flex: 0 0 auto;
     padding: 0;
     display: flex;
     align-items: center;
@@ -242,7 +244,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    color: #666666;
+    color: #777777;
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 28px;
@@ -250,7 +252,7 @@ body {
 
 .activity-hero-date {
     margin: 16px 0 28px;
-    color: #666;
+    color: #777777;
     font-size: 16px;
     font-weight: 500;
 }
